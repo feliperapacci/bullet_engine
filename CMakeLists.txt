@@ -25,7 +25,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 # Options
 # -------
-option(BANG_BUILD_TESTS           "Build unit test"           OFF)
+option(BANG_BUILD_TESTS           "Build unit test"           ON)
 option(BANG_WARNINGS_AS_ERRORS    "Treat warnings as errors"  OFF)
 option(BANG_SANITIZE              "Enable ASan and UBSan"     OFF)
 
