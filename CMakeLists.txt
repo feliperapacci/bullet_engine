@@ -2,9 +2,9 @@
 
 cmake_minimum_required(VERSION 3.25)
 
-project(bullet_engine
+project(bang_engine
     VERSION 0.1.0
-    LANGUAGES CXX
+    LANGUAGES C CXX
 )
 
 # Prevent CMake from polluting main directory
@@ -16,7 +16,7 @@ endif()
 # Project Settings
 # ----------------
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -25,9 +25,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 # Options
 # -------
-option(ENGINE_BUILD_TESTS           "Build unit test"           OFF)
-option(ENGINE_WARNINGS_AS_ERRORS    "Treat warnings as errors"  OFF)
-option(ENGINE_SANITIZE              "Enable ASan and UBSan"     OFF)
+option(BANG_BUILD_TESTS           "Build unit test"           OFF)
+option(BANG_WARNINGS_AS_ERRORS    "Treat warnings as errors"  OFF)
+option(BANG_SANITIZE              "Enable ASan and UBSan"     OFF)
 
 # Helpers
 # -------
@@ -38,7 +38,7 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(Warnings)
 
 # Sanitizers
-if (ENGINE_SANITIZE AND NOT MSVC)
+if (BANG_SANITIZE AND NOT MSVC)
     add_compile_options(-fsanitize=address,undefined -fno-omit-frame-pointer)
     add_link_options(-fsanitize=address,undefined)
 endif()
@@ -46,10 +46,10 @@ endif()
 # Submodules
 # -----------
 add_subdirectory(vendored)
-add_subdirectory(engine)
+add_subdirectory(bang)
 add_subdirectory(game)
 
-if (ENGINE_BUILD_TESTS)
+if (BANG_BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif()
