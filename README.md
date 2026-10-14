@@ -4,7 +4,29 @@ A game engine written with C++/OpenGL aimed to create FPS games. The true object
 
 ---
 
-## Project structure (AI-Generated)
+## Compiling, Running, Testing, and Benchmarking with CMake
+
+### Compiling
+Run the following inside the main directory:
+```
+cmake -B build -S .
+cmake --build build
+```
+
+### Running
+Executables will usually come from the `game/` directory, that contains games created with the engine. The library ships with a default game called "bullet", it - along with other executables such as test and benchmark - can be found in `build/bin`.
+
+### Testing
+Testing is done through Google Test, it is implemented in the test/ folder, the tests can be ran through two ways:
+1. Run the executable in `build/bin/bang_tests`
+2. Run `ctest --test-dir build --output-on-failure`
+
+### Benchmarking
+In progress...
+
+---
+
+## Project structure (AI-Aided)
 
 ```
 bullet_awkward_engine/
